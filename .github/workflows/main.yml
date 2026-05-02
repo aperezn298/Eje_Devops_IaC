@@ -1,0 +1,46 @@
+name: Flujo IaC Web
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  validacion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Ver estructura del proyecto
+        run: |
+          echo "Archivos en la raíz:"
+          ls -la
+          echo "Archivos en css:"
+          ls -la css
+          echo "Archivos en js:"
+          ls -la js
+
+      - name: Validar estructura del sitio web
+        run: |
+          if [ ! -f index.html ]; then
+            echo "Falta index.html"
+            exit 1
+          fi
+
+          if [ ! -f css/style.css ]; then
+            echo "Falta css/style.css"
+            exit 1
+          fi
+
+          if [ ! -f js/app.js ]; then
+            echo "Falta js/app.js"
+            exit 1
+          fi
+
+          if [ ! -f js/extensions.js ]; then
+            echo "Falta js/extensions.js"
+            exit 1
+          fi
+
+          echo "Estructura del proyecto validada correctamente"
