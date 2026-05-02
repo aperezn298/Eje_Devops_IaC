@@ -4,8 +4,8 @@
  */
 
 :root {
-    --primary-color: #4f46e5;
-    --primary-dark: #4338ca;
+    --primary-color: #0a4bac;
+    --primary-dark: #0a4bac;
     --success-color: #10b981;
     --danger-color: #ef4444;
     --warning-color: #f59e0b;
@@ -536,9 +536,74 @@ main {
     scrollbar-width: thin;
 }
 
+/* ========== Footer Styles ========== */
+.footer-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    box-shadow: var(--shadow-md);
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-section p {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.footer-section .bi {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.footer-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff !important;
+    transform: translateY(-3px);
+}
+
+.footer-links a .bi {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.footer-section hr {
+    opacity: 0.2;
+}
+
+/* ========== Responsive Footer ========== */
+@media (max-width: 768px) {
+    .footer-section .row:first-child {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .footer-section .col-md-6:last-child {
+        text-align: center !important;
+    }
+    
+    .footer-links {
+        justify-content: center;
+        display: flex;
+        gap: 0.5rem;
+    }
+}
+
 /* ========== Print Styles ========== */
 @media print {
     .header-section,
+    .footer-section,
     .btn,
     #taskForm,
     .delete-btn {
