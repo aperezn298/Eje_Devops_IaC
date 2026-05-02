@@ -1,0 +1,22 @@
+name: Flujo IaC Web
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  validacion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Verificar archivos del proyecto
+        run: |
+          echo "Validando estructura del sitio web..."
+          ls
+          test -f index.html
+          test -f style.css
+          test -f script.js
+          echo "Validación finalizada correctamente"
